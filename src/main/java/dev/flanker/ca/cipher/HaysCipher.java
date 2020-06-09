@@ -80,7 +80,7 @@ public class HaysCipher implements Cipher {
         return result;
     }
 
-    private int addKey(int data, int key) {
+    public int addKey(int data, int key) {
         return data ^ key;
     }
 

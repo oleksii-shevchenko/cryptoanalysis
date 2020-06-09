@@ -1,5 +1,7 @@
 package dev.flanker.ca.analysis;
 
+import java.util.Objects;
+
 public class Differential {
     private int a;
     private int b;
@@ -31,5 +33,19 @@ public class Differential {
                 "a=" + a +
                 ", b=" + b +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Differential that = (Differential) o;
+        return a == that.a &&
+                b == that.b;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(a, b);
     }
 }
