@@ -8,6 +8,6 @@ public class DifferentialCryptoanalysisStarter {
 
 
     public static void main(String[] args) {
-        System.out.println(new HaysDifferentialCryptoAnalysis().highProbabilityDifferentials(1, 1.0 / (1 << 14)));
+        System.out.println(new HaysDifferentialCryptoAnalysis().differentialSearch(1, 1.0 / (1 << 14)));
     }
 }

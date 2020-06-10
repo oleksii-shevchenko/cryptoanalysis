@@ -6,9 +6,17 @@ public class Differential {
     private int a;
     private int b;
 
+    private int level;
+
     public Differential(int a, int b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Differential(int a, int b, int level) {
+        this.a = a;
+        this.b = b;
+        this.level = level;
     }
 
     public int getA() {
@@ -25,6 +33,14 @@ public class Differential {
 
     public void setB(int b) {
         this.b = b;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     @Override

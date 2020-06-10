@@ -6,24 +6,22 @@ public class HaysCipher implements Cipher {
 
     public static final int ROUNDS = 6;
 
+    /* v4
     private static final int[] S_BOX = new int[] {
-            Integer.parseInt("f", 16),
-            Integer.parseInt("8", 16),
-            Integer.parseInt("e", 16),
-            Integer.parseInt("9", 16),
-            Integer.parseInt("7", 16),
-            Integer.parseInt("2", 16),
-            Integer.parseInt("0", 16),
-            Integer.parseInt("d", 16),
-            Integer.parseInt("c", 16),
-            Integer.parseInt("6", 16),
-            Integer.parseInt("1", 16),
-            Integer.parseInt("5", 16),
-            Integer.parseInt("b", 16),
-            Integer.parseInt("4", 16),
-            Integer.parseInt("3", 16),
-            Integer.parseInt("a", 16)
+            0x3, 0x8, 0xD, 0x9, 0x6, 0xB, 0xF, 0x0, 0x2, 0x5, 0xC, 0xA, 0x4, 0xE, 0x1, 0x7
+    };*/
+
+    private static final int[] S_BOX = new int[] {
+            0x2, 0x8, 0x9, 0x7, 0x5, 0xf, 0x0, 0xb, 0xc, 0x1, 0xd, 0xe, 0xa, 0x3, 0x6, 0x4
     };
+
+    /*private static final int[] S_BOX = new int[] {
+            0xa, 0x9, 0xd, 0x6, 0xe, 0xb, 0x4, 0x5, 0xf, 0x1, 0x3, 0xc, 0x7, 0x0, 0x8, 0x2
+    };*/
+
+    /*private static final int[] S_BOX = new int[] {
+            0xf, 0x8, 0xe, 0x9, 0x7, 0x2, 0x0, 0xd, 0xc, 0x6, 0x1, 0x5, 0xb, 0x4, 0x3, 0xa
+    };*/
 
     private static final int[] INV_S_BOX = inverseSBox(S_BOX);
 
@@ -61,7 +59,7 @@ public class HaysCipher implements Cipher {
         return substitution(permutation(addKey(data, key)), INV_S_BOX);
     }
 
-    private int permutation(int data) {
+    public int permutation(int data) {
         int result = 0;
         for (int i = 0; i < SUB_BLOCK_SIZE; i++) {
             for (int j = 0; j < SUB_BLOCK_SIZE; j++) {
@@ -80,7 +78,7 @@ public class HaysCipher implements Cipher {
         return result;
     }
 
-    public int addKey(int data, int key) {
+    private int addKey(int data, int key) {
         return data ^ key;
     }
 
